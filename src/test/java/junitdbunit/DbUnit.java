@@ -1,6 +1,5 @@
 package junitdbunit;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +15,6 @@ import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.filter.DefaultColumnFilter;
-import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.Test;
@@ -27,8 +25,8 @@ public class DbUnit extends DBTestCase {
 		super(name);
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "org.postgresql.Driver");
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:postgresql://localhost:5432/dbunit");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "aluno");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "aluno");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "bruno");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "postgre");
 	}
 
 	protected IDataSet getDataSet() throws Exception {
@@ -149,7 +147,7 @@ public class DbUnit extends DBTestCase {
     private Connection getSimpleConnection(){
         Connection con = null;
             try {
-                con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/dbunit", "aluno","aluno");
+                con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/dbunit", "bruno","postgre");
             } catch (SQLException ex) {
                 Logger.getLogger(DbUnit.class.getName()).log(Level.SEVERE, null, ex);
             }
